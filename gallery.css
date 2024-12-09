@@ -1,0 +1,209 @@
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    background-image: linear-gradient(120deg, #70c0f6, #334add);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5vw;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.5s ease, padding 0.7s ease, transform 1s ease;
+    position: relative;
+    z-index: 1000;
+    margin: 5px;
+
+}
+
+
+.burger-menu {
+    display: none; /* Hidden on larger screens */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: auto; /* Pushes the burger menu to the right */
+}
+
+
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+
+
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.8rem 5vw;
+    border-radius: 0 0 10px 10px;
+    background-color: rgba(31, 31, 31, 0.95);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .logo img {
+    height: 50px;
+    max-width: 100%;
+}
+/* Navbar Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Increase gap between links for desktop view */
+    transition: max-height 0.3s ease, opacity 0.3s ease , background-color 1s ease;
+}
+
+/* Styling for expanded menu with more vertical space */
+.nav-links.active {
+    display: block;
+    max-height: 400px; /* Increase vertical space when expanded */
+    opacity: 1;
+    padding: 1rem 0; /* Add vertical padding for extra space in expanded view */
+}
+
+/* Individual Link Styling */
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 1rem; /* Increase padding for extra spacing around each link */
+    overflow: hidden;
+    display: inline-block;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Line height */
+    background-color: #e1a51c; /* Line color */
+    transition: width 1s ease; /* Animation on hover */
+}
+
+.nav-links a:hover
+{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 0 0;
+}
+
+/* Show the horizontal line on hover */
+.nav-links a:hover::after {
+    width: 100%; /* Full width on hover */
+  
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(51, 51, 51, 0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem; /* Increase gap between links on mobile screens */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        max-height: 400px; /* Add more height to expanded mobile menu */
+        opacity: 1;
+        padding: 1rem 0; /* Add padding for extra vertical space in expanded menu */
+    }
+
+    /* Extra padding for links on mobile view */
+    .nav-links a {
+        padding: 1rem 1.5rem; /* Larger padding on mobile */
+    }
+}
+
+
+
+.gallery-container {
+    width: 90%;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.event {
+    margin-bottom: 30px;
+}
+
+.event h2 {
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

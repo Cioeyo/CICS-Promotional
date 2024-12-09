@@ -1,0 +1,502 @@
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    background-image: linear-gradient(120deg, #70c0f6, #334add);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5vw;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.5s ease, padding 0.7s ease, transform 1s ease;
+    position: relative;
+    z-index: 1000;
+    margin: 5px;
+
+}
+
+
+.burger-menu {
+    display: none; /* Hidden on larger screens */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: auto; /* Pushes the burger menu to the right */
+}
+
+
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+
+
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.8rem 5vw;
+    border-radius: 0 0 10px 10px;
+    background-color: rgba(31, 31, 31, 0.95);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .logo img {
+    height: 50px;
+    max-width: 100%;
+}
+/* Navbar Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Increase gap between links for desktop view */
+    transition: max-height 0.3s ease, opacity 0.3s ease , background-color 1s ease;
+}
+
+/* Styling for expanded menu with more vertical space */
+.nav-links.active {
+    display: block;
+    max-height: 400px; /* Increase vertical space when expanded */
+    opacity: 1;
+    padding: 1rem 0; /* Add vertical padding for extra space in expanded view */
+}
+
+/* Individual Link Styling */
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 1rem; /* Increase padding for extra spacing around each link */
+    overflow: hidden;
+    display: inline-block;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Line height */
+    background-color: #e1a51c; /* Line color */
+    transition: width 1s ease; /* Animation on hover */
+}
+
+.nav-links a:hover
+{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 0 0;
+}
+
+/* Show the horizontal line on hover */
+.nav-links a:hover::after {
+    width: 100%; /* Full width on hover */
+  
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(51, 51, 51, 0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem; /* Increase gap between links on mobile screens */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        max-height: 400px; /* Add more height to expanded mobile menu */
+        opacity: 1;
+        padding: 1rem 0; /* Add padding for extra vertical space in expanded menu */
+    }
+
+    /* Extra padding for links on mobile view */
+    .nav-links a {
+        padding: 1rem 1.5rem; /* Larger padding on mobile */
+    }
+}
+
+
+/* Intro Section */
+/* Intro Section */
+.intro {
+    padding: 4vw 4vw; /* Adjusted padding to match content section */
+    min-height: 30vh; /* Same height as content section */
+    text-align: center;
+    color: #000; /* Ensure the text color is the same */
+    border-radius: 10px;
+    background-color: rgba(250, 249, 246, 0.95); /* Same background as content */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Same shadow as content */
+    margin: 2vw auto;
+    max-width: 90%;
+    line-height: 1.6;
+}
+
+/* Text styling inside intro */
+.intro h1, .intro h2, .intro p{
+    position: relative;
+    z-index: 2;
+}
+
+.intro h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem); /* Responsive font size */
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #000; /* Ensure text is white like in content */
+
+}
+
+
+
+/* Content Sections */
+/* Content Sections */
+.content1 {
+    padding: 4vw 5vw;
+    min-height: 10vh;
+    text-align: center;
+    color: #000;
+    border-radius: 10px;
+    background-color: rgba(0, 255, 136, 0.95);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 8vw auto; /* Increase margin-top and margin-bottom to add more space */
+    max-width: 90%;
+}
+
+.content1 h1 {
+    font-size: clamp(1.8rem, 3vw, 2rem);
+}
+
+.content1 p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.6;
+    color: #000;
+    margin-top: 10px;
+}
+
+/*--------------------------------------*/
+
+.content2 {
+    padding: 4vw 5vw;
+    min-height: 10vh;
+    text-align: center;
+    color: #000;
+    border-radius: 10px;
+    background-color: rgba(255, 136, 0, 0.95);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 8vw auto; /* Increase margin-top and margin-bottom to add more space */
+    max-width: 90%;
+}
+
+.content2 h1 {
+    font-size: clamp(1.8rem, 3vw, 2rem);
+}
+
+.content2 p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.6;
+    color: #000;
+    margin-top: 10px;
+}
+
+/*--------------------------------------*/
+
+.content3 {
+    padding: 4vw 5vw;
+    min-height: 10vh;
+    text-align: center;
+    color: #000;
+    border-radius: 10px;
+    background-color: rgba(255, 45, 196, 0.95);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 8vw auto; /* Increase margin-top and margin-bottom to add more space */
+    max-width: 90%;
+}
+
+.content3 h1 {
+    font-size: clamp(1.8rem, 3vw, 2rem);
+}
+
+.content3 p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.6;
+    color: #000;
+    margin-top: 10px;
+}
+
+.more 
+{
+    margin-top: 2rem;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: antiquewhite;
+    width: 100px ;
+    border: none;
+    font-weight: bold;
+    transition: background-color 1s ease;
+}
+
+.more:hover
+{
+    background-color: #70c0f6;
+}
+
+/*--------------------------------------*/
+
+/* Visibility Animation */
+.intro, .content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.intro.visible, .content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* CORE VALUES Section */
+.content ul {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align the items horizontally */
+    gap: 1.5rem; /* Space between list items */
+    list-style-type: none; /* Remove default bullets */
+    padding: 0; /* Remove padding */
+
+    margin-top: 20px;
+}
+
+.content li {
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive font size */
+    text-align: center; /* Center-align text within each list item */
+    color: #000; /* Black text color */
+    font-weight: 500;
+    background-color: #f4f4f4; /* Light background for each list item */
+    border-radius: 8px; /* Rounded corners for list items */
+    padding: 1rem 2rem; /* Add padding to the list items */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for visual depth */
+}
+
+@media (max-width: 768px) {
+    .content ul {
+        gap: 1rem; /* Adjust the gap between items on smaller screens */
+    }
+
+    .content li {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 1rem 1.5rem; /* Adjust padding for smaller screens */
+    }
+}
+
+
+
+
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    .navbar .logo img {
+        height: 40px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .intro
+    {
+        margin: 15vw auto;
+    }
+
+    .content {
+        padding: 8vw 3vw;
+        margin: 20vw auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem 3vw;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+    }
+
+    .intro
+    {
+        margin: 15vw auto;
+    }
+
+    .intro h1 {
+        font-size: 1.6rem;
+    }
+
+    .intro h2 {
+        font-size: 1.2rem;
+    }
+
+    .intro p {
+        font-size: 0.9rem;
+    }
+
+    .intro .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .content {
+        padding: 6vw 2vw;
+        margin: 20vw auto;
+    }
+
+
+
+}
+
+
+
+/* Common flip styles */
+.content1, .content2, .content3 {
+    position: relative;
+    perspective: 1000px; /* Enable 3D effect */
+    transform-style: preserve-3d; /* Enable 3D transformations */
+    transition: transform 0.6s ease; /* Smooth flipping */
+}
+
+/* The flipped state */
+.content1.flipped, .content2.flipped, .content3.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Back face styles */
+.content1::after, .content2::after, .content3::after {
+    content: attr(data-back); /* Use data attributes to store back-face content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 86.5%;
+    height: 60%;
+    backface-visibility: hidden; /* Hide back face when not flipped */
+    padding: 4vw 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transform: rotateY(180deg); /* Flip back face by default */
+}
+
+/* Customize back-face background colors */
+.content1::after {
+    background-color: rgba(0, 255, 136, 0.95);
+    color: #000;
+}
+
+.content2::after {
+    background-color: rgba(255, 136, 0, 0.95);
+    color: #000;
+}
+
+.content3::after {
+    background-color: rgba(255, 45, 196, 0.95);
+    color: #000;
+}
+
+/* Hide the front face when flipped */
+.content1.flipped, .content2.flipped, .content3.flipped {
+    color: transparent; /* Hide front face content when flipped */
+}
+
+
+/* Responsive adjustments for flipping effect */
+@media (max-width: 1024px) {
+    .content1, .content2, .content3 {
+        width: 80%; /* Reduce width for smaller screens */
+        height: auto; /* Adjust height to maintain proportion */
+        margin: 2rem auto; /* Add spacing on smaller screens */
+    }
+
+    .content1::after, .content2::after, .content3::after {
+        width: 100%; /* Match parent's adjusted width */
+        height: 100%; /* Match parent's adjusted height */
+        padding: 2vw 3vw; /* Reduce padding for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .content1, .content2, .content3 {
+        width: 90%; /* Further reduce width for mobile screens */
+    }
+
+    .content1::after, .content2::after, .content3::after {
+        padding: 1.5vw 2vw; /* Adjust padding for better fit */
+    }
+}
+
+@media (max-width: 480px) {
+    .content1, .content2, .content3 {
+        width: 90%; /* Maximize width for very small screens */
+        margin: 1rem auto; /* Reduce margin for small screens */
+    }
+
+    .content1::after, .content2::after, .content3::after {
+        padding: 1vw; /* Minimize padding for compact view */
+        font-size: 0.9rem; /* Adjust font size for readability */
+    }
+}
+
+
+
+
+
+
+

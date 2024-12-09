@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+    <script>
+        // Toggle visibility of nav links on burger menu click
+        document.addEventListener('DOMContentLoaded', () => {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            burgerMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            checkVisibility(); // Initial visibility check
+        });
+
+        // Check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top < window.innerHeight && rect.bottom >= 0;
+        }
+
+        // Toggle visibility classes based on viewport position
+        function checkVisibility() {
+            const intro = document.querySelector('.intro');
+            const sections = document.querySelectorAll('.content');
+
+            if (intro && isInViewport(intro)) {
+                intro.classList.add('visible');
+            }
+
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Sticky navbar and visibility check on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+            checkVisibility();
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <img src="cics_new.png" alt="CICS Logo">
+            </div>
+            <!-- Burger menu button -->
+            <button class="burger-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="course.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section id="home" class="intro">
+            <h2>Discover the Future of Innovation</h2>
+            <h1>Welcome to CICS Explore</h1>
+            <p>Explore, Innovate , Succeed, Your Future Starts Here with CICS.</p>
+            <a href="about.html" class="btn primary">Learn More</a>
+        </section>
+
+        <!-- Additional content sections -->
+    </main>
+</body>
+</html>

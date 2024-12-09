@@ -1,0 +1,273 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    background-image: url('image/depart.jpg'); /* Move background image here */
+    background-size: cover; /* Ensure the image covers the entire viewport */
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5vw;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    border-radius: 20px;
+    transition: background-color 0.5s ease, padding 0.7s ease, transform 1s ease;
+    position: relative;
+    z-index: 1000;
+    margin: 5px;
+}
+
+.burger-menu {
+    display: none; /* Hidden on larger screens */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: auto; /* Pushes the burger menu to the right */
+}
+
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Navbar Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Increase gap between links for desktop view */
+    transition: max-height 0.3s ease, opacity 0.3s ease , background-color 1s ease;
+}
+
+/* Styling for expanded menu with more vertical space */
+.nav-links.active {
+    display: block;
+    max-height: 400px; /* Increase vertical space when expanded */
+    opacity: 1;
+    padding: 1rem 0; /* Add vertical padding for extra space in expanded view */
+}
+
+/* Individual Link Styling */
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 1rem; /* Increase padding for extra spacing around each link */
+    overflow: hidden;
+    display: inline-block;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Line height */
+    background-color: #e1a51c; /* Line color */
+    transition: width 1s ease; /* Animation on hover */
+}
+
+.nav-links a:hover
+{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 0 0;
+}
+
+/* Show the horizontal line on hover */
+.nav-links a:hover::after {
+    width: 100%; /* Full width on hover */
+  
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(51, 51, 51, 0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem; /* Increase gap between links on mobile screens */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        max-height: 400px; /* Add more height to expanded mobile menu */
+        opacity: 1;
+        padding: 1rem 0; /* Add padding for extra vertical space in expanded menu */
+    }
+
+    /* Extra padding for links on mobile view */
+    .nav-links a {
+        padding: 1rem 1.5rem; /* Larger padding on mobile */
+    }
+}
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.8rem 5vw;
+    border-radius: 0 0 10px 10px;
+    background-color: rgba(31, 31, 31, 0.95);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .logo img {
+    height: 50px;
+    max-width: 100%;
+}
+
+/* Intro Section */
+.intro {
+    padding: 5vw 2vw;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay */
+    z-index: 0;
+}
+
+.intro h1,
+.intro h2,
+.intro p,
+.intro .btn {
+    position: relative;
+    z-index: 2;
+}
+
+.intro h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem); /* Responsive font size */
+    margin-bottom: 1rem;
+}
+
+.intro h2 {
+    color: #e1a51c;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 0.5rem;
+}
+
+.intro p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #fff;
+    max-width: 90%;
+}
+
+.intro .btn {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.intro .btn.primary {
+    background-color: #e1a51c;
+}
+
+.intro .btn.primary:hover {
+    background-color: #9e7412;
+}
+
+/* Visibility Animation */
+.intro {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.intro.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    .navbar .logo img {
+        height: 40px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Centering the intro section for smaller screens */
+    .intro {
+        padding: 2rem; /* Reduce padding */
+        height: auto; /* Allow intro to grow with content */
+        justify-content: center; /* Center content vertically */
+        margin-top: 50%;
+    }
+
+    .intro h1 {
+        font-size: 1.6rem; /* Smaller font size */
+    }
+
+    .intro h2 {
+        font-size: 1.2rem;
+    }
+
+    .intro p {
+        font-size: 0.9rem;
+    }
+
+    .intro .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}

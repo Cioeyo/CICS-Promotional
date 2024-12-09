@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+
+
+    <script>
+        // Toggle visibility of nav links on burger menu click
+        document.addEventListener('DOMContentLoaded', () => {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            burgerMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            checkVisibility(); // Initial visibility check
+        });
+
+        // Check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top < window.innerHeight && rect.bottom >= 0;
+        }
+
+        // Toggle visibility classes based on viewport position
+        function checkVisibility() {
+            const intro = document.querySelector('.intro');
+            const sections = document.querySelectorAll('.content');
+
+            if (intro && isInViewport(intro)) {
+                intro.classList.add('visible');
+            }
+
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Sticky navbar and visibility check on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+            checkVisibility();
+        });
+
+
+        function flip(button) {
+    const section = button.closest('section'); // Get the parent section
+    section.classList.toggle('flipped'); // Toggle the 'flipped' class
+}
+
+
+    </script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="cics_new.png" alt="CICS Logo">
+            </div>
+            <button class="burger-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="course.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="gallery-container">
+            <!-- Event 1 -->
+            <div class="event">
+                <h2>Event Name: CICS Acquaintance Party 2024</h2>
+                <div class="photo-grid">
+                    <img src="image/cics/1.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/2.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/3.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/4.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/5.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/6.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/7.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/8.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/9.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/10.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/11.jpg" alt="CICS Acquaintance Party">
+                    <img src="image/cics/12.jpg" alt="CICS Acquaintance Party">
+                    
+                </div>
+            </div>
+            
+            <!-- Event 2 -->
+            <div class="event">
+                <h2>Event Name: Fire and Earthquake Drill</h2>
+                <div class="photo-grid">
+                    <img src="image/fed/1.jpg" alt="Fire and Earthquake Drill">
+                    <img src="image/fed/2.jpg" alt="Fire and Earthquake Drill">
+                    <img src="image/fed/3.jpg" alt="Fire and Earthquake Drill">
+                    <img src="image/fed/4.jpg" alt="Fire and Earthquake Drill">
+                    <img src="image/fed/5.jpg" alt="Fire and Earthquake Drill">
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event">
+                <h2>Event Name: NISU 68th Foundation Day</h2>
+                <div class="photo-grid">
+                    <img src="image/foundation day/1.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/2.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/3.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/4.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/5.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/6.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/7.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/8.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/9.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/10.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/11.jpg" alt=" NISU 68th Foundation Day">
+                    <img src="image/foundation day/12.jpg" alt=" NISU 68th Foundation Day">
+                </div>
+            </div>
+
+
+            <div class="event">
+                <h2>Event Name: CICS Orientation 2024</h2>
+                <div class="photo-grid">
+                    <img src="image/oorientation/1.jpg" alt="CICS Orientation 2024">
+                    <img src="image/oorientation/2.jpg" alt="CICS Orientation 2024">
+                    <img src="image/oorientation/3.jpg" alt="CICS Orientation 2024">
+                    <img src="image/oorientation/4.jpg" alt="CICS Orientation 2024">
+                </div>
+            </div>
+
+            <div class="event">
+                <h2>Event Name: NISU 2nd University Week</h2>
+                <div class="photo-grid">
+                    <img src="image/nisu week/1.jpg" alt="NISU 2nd University Week">
+                    <img src="image/nisu week/2.jpg" alt="NISU 2nd University Week">
+                    <img src="image/nisu week/3.jpg" alt="NISU 2nd University Week">
+                    <img src="image/nisu week/5.jpg" alt="NISU 2nd University Week">
+                    <img src="image/nisu week/4.jpg" alt="NISU 2nd University Week">
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="course.css">
+    <script>
+        // Toggle visibility of nav links on burger menu click
+        document.addEventListener('DOMContentLoaded', () => {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            burgerMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            checkVisibility(); // Initial visibility check
+        });
+
+        // Check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top < window.innerHeight && rect.bottom >= 0;
+        }
+
+        // Toggle visibility classes based on viewport position
+        function checkVisibility() {
+            const intro = document.querySelector('.intro');
+            const sections = document.querySelectorAll('.content');
+
+            if (intro && isInViewport(intro)) {
+                intro.classList.add('visible');
+            }
+
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Sticky navbar and visibility check on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+            checkVisibility();
+        });
+
+
+        function flip(button) {
+    const section = button.closest('section'); // Get the parent section
+    section.classList.toggle('flipped'); // Toggle the 'flipped' class
+}
+
+
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <img src="cics_new.png" alt="CICS Logo">
+            </div>
+            <!-- Burger menu button -->
+            <button class="burger-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                  
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section class="intro" >
+            <h1>Our Course <br>
+                Categories</h1>
+
+                
+            
+                <section class="content1" data-back="This program focuses on the application of technology to solve business problems, emphasizing practical skills in systems analysis, networking, and programming.">
+                    <h1>Bachelor of Science in Information Technology</h1>
+                    <button class="more" onclick="flip(this)">More</button>
+                    
+                </section>
+                
+                <section class="content2" data-back="This course is centered around software development, algorithms, and computational theories, preparing students for a career in programming and research.">
+                    <h1>Bachelor of Science in Computer Science</h1>
+                    <button class="more" onclick="flip(this)">More</button>
+                </section>
+                
+                <section class="content3" data-back="Focused on library science and information management, this program develops skills in organizing, preserving, and retrieving information effectively.">
+                    <h1>Bachelor of Science in BLIS</h1>
+                    <button class="more" onclick="flip(this)">More</button>
+                </section>
+                
+                
+                
+
+        </section>
+
+     
+    </main>
+</body>
+</html>

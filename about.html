@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="about.css">
+    <script>
+        // Toggle visibility of nav links on burger menu click
+        document.addEventListener('DOMContentLoaded', () => {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            burgerMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            checkVisibility(); // Initial visibility check
+        });
+
+        // Check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top < window.innerHeight && rect.bottom >= 0;
+        }
+
+        // Toggle visibility classes based on viewport position
+        function checkVisibility() {
+            const intro = document.querySelector('.intro');
+            const sections = document.querySelectorAll('.content');
+
+            if (intro && isInViewport(intro)) {
+                intro.classList.add('visible');
+            }
+
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Sticky navbar and visibility check on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky');
+            }
+            checkVisibility();
+        });
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <img src="cics_new.png" alt="CICS Logo">
+            </div>
+            <!-- Burger menu button -->
+            <button class="burger-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="course.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <section class="intro" >
+            <h1>About Us</h1>
+            <p>The CICS Department Promotional App is your go-to guide for
+                 exploring the exciting academic programs offered by the
+                  Department of Computer and Information Science & Engineering.
+                   This app highlights the department’s three flagship programs:
+                    Bachelor of Science in Information Technology (BSIT),
+                     Bachelor of Science in Computer Science (ComSci),
+                      and Bachelor of Science in Bioinformatics and Life Sciences (BLIS).
+                      Get in-depth details about each program, including course offerings,
+                       career pathways, faculty expertise, and student success stories.
+                        Whether you're considering a future in IT, computer science,
+                         or bioinformatics, the app helps you discover the right program
+                          for your interests and goals. Stay connected with the latest news,
+                           events, and opportunities within CICS, and take the first step toward 
+                           shaping your future in technology and life sciences</p>
+        </section>
+
+        <section class="content">
+            <h1>Vision</h1>
+            <p>A globally competitive State University in Asia</p>
+        </section>
+
+        <section class="content">
+            <h1>Mission</h1>
+            <p>Human resources development through quality and relevant education, 
+                environment-friendly modern technologies and preservation of Filipino 
+                values and culture for sustainable and improved quality of life.</p>
+        </section>
+
+        <section class="content">
+           <h1>CORE VALUES</h1>
+           <ul>
+            <li>C- ommunicative</li>
+            <li>R- esearch oriented</li>
+            <li>E - xcellent time manager</li>
+            <li>A - cademically competent</li>
+            <li>T- echnically equipped</li>
+            <li>I- nnovative</li>
+            <li>V- alues oriented</li>
+            <li>E- nvironment friendly</li>
+           </ul>
+
+        </section>
+    </main>
+</body>
+</html>

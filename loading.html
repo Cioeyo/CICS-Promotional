@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body {
+            background-color: #e1a51c; /* Theme color */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            margin: 0;
+        }
+
+        .spinner {
+            width: 200px; /* Increase the size of the image */
+            height: 200px;
+            animation-name: spin;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-duration: 2s; /* Faster spinning */
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin {
+            from {
+                -webkit-transform: rotateY(0deg);
+            }
+            to {
+                -webkit-transform: rotateY(360deg);
+            }
+        }
+
+        p {
+            margin-top: 15px; /* Space between image and text */
+            font-size: 1.5rem; /* Increase text size if desired */
+        }
+    </style>
+</head>
+<body>
+
+    <img src="cics_new.png" alt="Loading..." class="spinner"> <!-- Replace with your image file -->
+    <p>Loading...</p>
+
+    <script>
+        // Redirect to the main page after 2 seconds
+        setTimeout(function() {
+            window.location.href = 'home.html'; // Change to your target page
+        }, 2000); // 2000 milliseconds = 2 seconds
+    </script>
+
+</body>
+</html>
