@@ -1,21 +1,20 @@
 {
-  "short_name": "Promotional",
   "name": "CICS Promotional",
-  "description": "Empowering Innovation, Inspiring Connection",
-  "start_url": "https://cioeyo.github.io/CICS-Promotional/index.html",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "short_name": "CICS",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/Cioeyo/CICS-Promotional/refs/heads/main/image/192.png",
+      "src": "https://cioeyo.github.io/CICS-Promotional/image/192.png",
       "sizes": "192x192",
-      "type": "/image/png"
+      "type": "image/png"
     },
     {
-      "src": "https://raw.githubusercontent.com/Cioeyo/CICS-Promotional/refs/heads/main/image/512.png",
+      "src": "https://cioeyo.github.io/CICS-Promotional/image/512.png",
       "sizes": "512x512",
-      "type": "/image/png"
+      "type": "image/png"
     }
-  ]
+  ],
+  "start_url": "/CICS-Promotional/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
 }
